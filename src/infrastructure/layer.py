@@ -27,6 +27,9 @@ class InfrastructureLayer(Layer):
         container[DatabaseTransactionManager] = SQLDatabaseTransactionManager(
             connection_manager=container[SQLDatabaseConnectionManager],
         )
+        container[TransactionMiddleware] = TransactionMiddleware(
+            transaction_manager=container[DatabaseTransactionManager],
+        )
 
         container[CommentRepository] = SQLAlchemyCommentRepository(
             connection_manager=container[SQLDatabaseConnectionManager],

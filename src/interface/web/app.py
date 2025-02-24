@@ -4,7 +4,6 @@ from fastapi import FastAPI, Request, APIRouter, status
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 
-from application.exception.base import NotFound
 from application.layer import ApplicationLayer
 from domain.shared.exception.base import DomainException
 from infrastructure.di.container import Container
@@ -15,7 +14,6 @@ from interface.web.routes.comment.routes import router as comment_router
 
 
 class WebApplication:
-
     def __init__(
         self,
         container: Container,
@@ -43,7 +41,7 @@ class WebApplication:
         for route in routes:
             app.include_router(route)
 
-        @app.middleware('http')
+        @app.middleware("http")
         async def set_registry[T](
             request: Request,
             call_next: Callable[[Request], Awaitable[T]],
@@ -70,11 +68,6 @@ class WebApplication:
 
     def _exception_factory(self, exception: Exception) -> JSONResponse:
         match exception:
-            case NotFound():
-                return JSONResponse(
-                    status_code=status.HTTP_404_NOT_FOUND,
-                    content={"detail": str(exception)},
-                )
             case DomainException():
                 return JSONResponse(
                     status_code=status.HTTP_400_BAD_REQUEST,
@@ -99,7 +92,5 @@ web_app = WebApplication(
             ApplicationLayer(),
         ),
     ),
-    routes=(
-        comment_router,
-    ),
+    routes=(comment_router,),
 )

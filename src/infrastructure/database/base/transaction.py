@@ -3,6 +3,5 @@ from contextlib import asynccontextmanager
 
 
 class DatabaseTransactionManager(ABC):
-
-    @asynccontextmanager
+    @asynccontextmanager  # type: ignore
     async def begin(self) -> None: ...
