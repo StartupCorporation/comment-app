@@ -3,7 +3,7 @@ from interface.web.routes.comment.contracts.output.get_categories import Comment
 
 GET_PRODUCT_COMMENTS = {
     200: {
-        'description': "Product's comments are returned.",
-        'model': list[CommentOutputContract],
+        "description": "Product's comments are returned.",
+        "model": list[CommentOutputContract],
     },
 }

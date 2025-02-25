@@ -5,7 +5,6 @@ from infrastructure.bus.command.handler import CommandHandler
 
 
 class CreateCommentCommandHandler(CommandHandler[CreateCommentCommand]):
-
     def __init__(
         self,
         comment_repository: CommentRepository,
@@ -18,7 +17,7 @@ class CreateCommentCommandHandler(CommandHandler[CreateCommentCommand]):
     ) -> None:
         comment = Comment.new(
             product_id=command.product_id,
-            author_name=command.author_name,
+            author=command.author,
             content=command.content,
         )
         await self._comment_repository.save(

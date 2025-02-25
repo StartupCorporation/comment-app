@@ -1,13 +1,22 @@
 from datetime import datetime
 from typing import Annotated
+from uuid import uuid4
 
-from pydantic import Field
+from pydantic import UUID4, Field
 
 from interface.web.contracts import OutputContract
 
 
 class CommentOutputContract(OutputContract):
-    author_name: Annotated[
+    id_: Annotated[
+        UUID4,
+        Field(
+            examples=[uuid4()],
+            alias="id",
+            description="The comment's id.",
+        ),
+    ]
+    author: Annotated[
         str,
         Field(
             examples=["John"],
