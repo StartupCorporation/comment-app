@@ -11,6 +11,7 @@ from infrastructure.di.container import Container
 from infrastructure.di.layer import Layer
 from infrastructure.settings.application import ApplicationSettings
 from infrastructure.settings.database import DatabaseSettings
+from infrastructure.settings.rabbitmq import RabbitMQSettings
 
 
 class InfrastructureLayer(Layer):
@@ -20,6 +21,7 @@ class InfrastructureLayer(Layer):
     ) -> None:
         container[ApplicationSettings] = ApplicationSettings()  # type: ignore
         container[DatabaseSettings] = DatabaseSettings()  # type: ignore
+        container[RabbitMQSettings] = RabbitMQSettings()  # type: ignore
 
         container[SQLDatabaseConnectionManager] = SQLDatabaseConnectionManager(
             settings=container[DatabaseSettings],
