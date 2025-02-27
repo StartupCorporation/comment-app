@@ -10,10 +10,8 @@ dependencies = [
     "fastapi",
     "uvicorn",
     "asyncpg",
-    "typer",
     "faststream[rabbit,cli]",
     "alembic",
-    "phonenumbers",
 ]
 
 [project.optional-dependencies]
@@ -33,7 +31,6 @@ indent-width = 4
 exclude = [
     "venv",
     ".git",
-    ".idea",
     "__pycache__",
 ]
 target-version = "py312"
