@@ -15,7 +15,6 @@ from infrastructure.settings.database import DatabaseSettings
 
 
 class SQLDatabaseConnectionManager:
-
     def __init__(
         self,
         settings: DatabaseSettings,

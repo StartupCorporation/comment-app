@@ -3,11 +3,14 @@ from typing import Iterable
 from faststream import FastStream, ContextRepo, ExceptionMiddleware
 from faststream.broker.router import BrokerRouter
 from faststream.rabbit import RabbitBroker
+from dw_shared_kernel import (
+    DomainException,
+    Container,
+    SharedKernelInfrastructureLayer,
+    get_di_container,
+)
 
 from application.layer import ApplicationLayer
-from domain.shared.exception.base import DomainException
-from infrastructure.di.container import Container
-from infrastructure.di.utils import get_di_container
 from infrastructure.layer import InfrastructureLayer
 from infrastructure.settings.application import ApplicationSettings
 from infrastructure.settings.rabbitmq import RabbitMQSettings
@@ -69,6 +72,7 @@ class QueueApplication:
 queue_app = QueueApplication(
     container=get_di_container(
         layers=(
+            SharedKernelInfrastructureLayer(),
             InfrastructureLayer(),
             ApplicationLayer(),
         ),

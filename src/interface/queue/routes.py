@@ -2,9 +2,11 @@ from typing import Annotated
 
 from faststream import Context
 from faststream.rabbit import RabbitRouter, RabbitQueue
+from dw_shared_kernel import (
+    CommandBus,
+    Container,
+)
 
-from infrastructure.bus.command.bus import CommandBus
-from infrastructure.di.container import Container
 from interface.queue.config import config
 from interface.queue.contracts.product.product_deleted import ProductDeletedEventInputContract
 

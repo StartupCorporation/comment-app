@@ -12,6 +12,7 @@ dependencies = [
     "asyncpg",
     "faststream[rabbit,cli]",
     "alembic",
+    "dw-shared-kernel",
 ]
 
 [project.optional-dependencies]
@@ -33,7 +34,7 @@ exclude = [
     ".git",
     "__pycache__",
 ]
-target-version = "py312"
+target-version = "py313"
 
 [tool.ruff.lint]
 ignore = ["N818"]

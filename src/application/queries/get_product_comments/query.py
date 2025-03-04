@@ -1,6 +1,6 @@
 from uuid import UUID
 
-from infrastructure.bus.query.message import Query
+from dw_shared_kernel import Query
 
 
 class GetProductCommentsQuery(Query):

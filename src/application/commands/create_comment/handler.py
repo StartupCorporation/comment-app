@@ -1,7 +1,8 @@
+from dw_shared_kernel import CommandHandler
+
 from application.commands.create_comment.command import CreateCommentCommand
 from domain.comment.entity import Comment
 from domain.comment.repository import CommentRepository
-from infrastructure.bus.command.handler import CommandHandler
 
 
 class CreateCommentCommandHandler(CommandHandler[CreateCommentCommand]):

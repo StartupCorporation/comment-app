@@ -3,11 +3,14 @@ from typing import Iterable, Awaitable, Callable
 from fastapi import FastAPI, Request, APIRouter, status
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
+from dw_shared_kernel import (
+    DomainException,
+    Container,
+    get_di_container,
+    SharedKernelInfrastructureLayer,
+)
 
 from application.layer import ApplicationLayer
-from domain.shared.exception.base import DomainException
-from infrastructure.di.container import Container
-from infrastructure.di.utils import get_di_container
 from infrastructure.layer import InfrastructureLayer
 from infrastructure.settings.application import ApplicationSettings
 from interface.web.routes.comment.routes import router as comment_router
@@ -88,6 +91,7 @@ class WebApplication:
 web_app = WebApplication(
     container=get_di_container(
         layers=(
+            SharedKernelInfrastructureLayer(),
             InfrastructureLayer(),
             ApplicationLayer(),
         ),

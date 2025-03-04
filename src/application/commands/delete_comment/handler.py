@@ -1,10 +1,10 @@
+from dw_shared_kernel import CommandHandler
+
 from application.commands.delete_comment.command import DeleteCommentCommand
 from domain.comment.repository import CommentRepository
-from infrastructure.bus.command.handler import CommandHandler
 
 
 class DeleteCommentCommandHandler(CommandHandler[DeleteCommentCommand]):
-
     def __init__(
         self,
         comment_repository: CommentRepository,

@@ -1,6 +1,7 @@
+from dw_shared_kernel import CommandHandler
+
 from application.commands.delete_product_comments.command import DeleteProductCommentsCommand
 from domain.comment.repository import CommentRepository
-from infrastructure.bus.command.handler import CommandHandler
 
 
 class DeleteProductCommentsCommandHandler(CommandHandler[DeleteProductCommentsCommand]):

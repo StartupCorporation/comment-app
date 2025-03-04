@@ -1,7 +1,8 @@
+from dw_shared_kernel import QueryHandler
+
 from application.queries.get_product_comments.query import GetProductCommentsQuery
 from application.queries.get_product_comments.result import ProductComment
 from domain.comment.repository import CommentRepository
-from infrastructure.bus.query.handler import QueryHandler
 
 
 class GetProductCommentsQueryHandler(QueryHandler[GetProductCommentsQuery, list[ProductComment]]):

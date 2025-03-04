@@ -1,6 +1,5 @@
 from pydantic import UUID4
-
-from infrastructure.bus.command.message import Command
+from dw_shared_kernel import Command
 
 
 class CreateCommentCommand(Command):

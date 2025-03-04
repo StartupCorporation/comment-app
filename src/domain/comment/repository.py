@@ -1,8 +1,9 @@
 from abc import ABC, abstractmethod
 from uuid import UUID
 
+from dw_shared_kernel import CRUDRepository
+
 from domain.comment.entity import Comment
-from domain.shared.repository.base import CRUDRepository
 
 
 class CommentRepository(CRUDRepository[UUID, Comment], ABC):

@@ -4,10 +4,12 @@ from fastapi import APIRouter, Path, Query, status, Depends
 from interface.web.routes.comment.docs.create_comment import CREATE_COMMENT
 from interface.web.routes.comment.docs.delete_comment import DELETE_COMMENT
 from pydantic import UUID4
+from dw_shared_kernel import (
+    QueryBus,
+    Container,
+    CommandBus,
+)
 
-from infrastructure.bus.query.bus import QueryBus
-from infrastructure.di.container import Container
-from infrastructure.bus.command.bus import CommandBus
 from interface.web.routes.comment.contracts.input.create_comment import CreateCommentInputContract
 from interface.web.dependencies.container import get_di_container
 from interface.web.routes.comment.contracts.output.get_categories import CommentOutputContract

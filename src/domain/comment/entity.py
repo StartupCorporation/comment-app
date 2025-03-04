@@ -2,7 +2,8 @@ from datetime import datetime
 from dataclasses import dataclass
 from uuid import UUID, uuid4
 
-from domain.shared.entity.base import Entity
+from dw_shared_kernel import Entity
+
 from domain.comment.exception.author_name_must_contain_only_alphabetic_characters import (
     AuthorNameMustContainOnlyAlphaCharacters,
 )

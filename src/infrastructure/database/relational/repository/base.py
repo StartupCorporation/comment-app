@@ -4,14 +4,15 @@ from functools import cached_property
 
 from sqlalchemy import delete, select
 from sqlalchemy.ext.asyncio import AsyncSession
+from dw_shared_kernel import (
+    Entity,
+    CRUDRepository,
+)
 
-from domain.shared.entity.base import Entity
-from domain.shared.repository.base import CRUDRepository
 from infrastructure.database.relational.connection import SQLDatabaseConnectionManager
 
 
 class SQLAlchemyRepository(ABC):
-
     def __init__(
         self,
         connection_manager: SQLDatabaseConnectionManager,
@@ -24,7 +25,6 @@ class CRUDSQLAlchemyRepository[ID, ENTITY: Entity](
     CRUDRepository,
     ABC,
 ):
-
     async def get(self, id_: ID) -> ENTITY | None:
         stmt = select(self.entity_class).where(self.entity_class.id == id_)
         return await self._scalar(stmt)

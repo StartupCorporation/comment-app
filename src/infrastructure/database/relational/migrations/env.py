@@ -5,15 +5,21 @@ from alembic import context
 from sqlalchemy import pool
 from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
+from dw_shared_kernel import (
+    SharedKernelInfrastructureLayer,
+    get_di_container,
+)
 
 from infrastructure.database.relational.models.base import Base
-from infrastructure.di.utils import get_di_container
 from infrastructure.layer import InfrastructureLayer
 from infrastructure.settings.database import DatabaseSettings
 
 
 container = get_di_container(
-    layers=[InfrastructureLayer()],
+    layers=[
+        SharedKernelInfrastructureLayer(),
+        InfrastructureLayer(),
+    ],
 )
 
 config = context.config

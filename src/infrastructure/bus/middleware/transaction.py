@@ -1,6 +1,7 @@
 from typing import Callable, Awaitable, Any
 
-from infrastructure.bus.middleware.base import BusMiddleware
+from dw_shared_kernel import BusMiddleware
+
 from infrastructure.database.base.transaction import DatabaseTransactionManager
 
 

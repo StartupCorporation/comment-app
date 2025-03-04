@@ -1,3 +1,10 @@
+from dw_shared_kernel import (
+    CommandBus,
+    QueryBus,
+    Container,
+    Layer,
+)
+
 from application.commands.create_comment.command import CreateCommentCommand
 from application.commands.create_comment.handler import CreateCommentCommandHandler
 from application.commands.delete_comment.command import DeleteCommentCommand
@@ -7,10 +14,6 @@ from application.commands.delete_product_comments.handler import DeleteProductCo
 from application.queries.get_product_comments.handler import GetProductCommentsQueryHandler
 from application.queries.get_product_comments.query import GetProductCommentsQuery
 from domain.comment.repository import CommentRepository
-from infrastructure.bus.command.bus import CommandBus
-from infrastructure.bus.query.bus import QueryBus
-from infrastructure.di.container import Container
-from infrastructure.di.layer import Layer
 
 
 class ApplicationLayer(Layer):
