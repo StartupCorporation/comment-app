@@ -3,19 +3,34 @@ name = "comment-app"
 version = "0.0.1"
 description = "The comment microservice application."
 requires-python = ">=3.13"
-dependencies = [
+dependencies = []
+
+[project.optional-dependencies]
+web = [
     "pydantic-settings",
     "pydantic",
     "sqlalchemy[asyncio]",
+    "asyncpg",
+    "dw-shared-kernel==0.2.0",
     "fastapi",
     "uvicorn",
-    "asyncpg",
-    "faststream[rabbit,cli]",
-    "alembic",
-    "dw-shared-kernel",
 ]
-
-[project.optional-dependencies]
+queue = [
+    "pydantic-settings",
+    "pydantic",
+    "sqlalchemy[asyncio]",
+    "asyncpg",
+    "dw-shared-kernel==0.2.0",
+    "faststream[rabbit,cli]",
+]
+migration = [
+    "pydantic-settings",
+    "pydantic",
+    "sqlalchemy[asyncio]",
+    "asyncpg",
+    "alembic",
+    "dw-shared-kernel==0.2.0",
+]
 local = [
     "pytest",
     "ipython",

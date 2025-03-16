@@ -1,6 +1,10 @@
-from invoke import Collection
+from invoke.collection import Collection
 
-import packages
+from deps import collection
 
 
-namespace = Collection(packages)
+namespace = Collection()
+namespace.add_collection(
+    coll=collection,
+    name="deps",
+)
