@@ -11,7 +11,7 @@ web = [
     "pydantic",
     "sqlalchemy[asyncio]",
     "asyncpg",
-    "dw-shared-kernel==0.2.0",
+    "dw-shared-kernel",
     "fastapi",
     "uvicorn",
 ]
