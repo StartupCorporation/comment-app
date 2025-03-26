@@ -11,7 +11,7 @@ web = [
     "pydantic",
     "sqlalchemy[asyncio]",
     "asyncpg",
-    "dw-shared-kernel",
+    "dw-shared-kernel@git+ssh://git@github.com/StartupCorporation/dw-shared-kernel.git@v0.4.0",
     "fastapi",
     "uvicorn",
 ]
@@ -20,7 +20,7 @@ queue = [
     "pydantic",
     "sqlalchemy[asyncio]",
     "asyncpg",
-    "dw-shared-kernel==0.2.0",
+    "dw-shared-kernel@git+ssh://git@github.com/StartupCorporation/dw-shared-kernel.git@v0.4.0",
     "faststream[rabbit,cli]",
 ]
 migration = [
@@ -29,10 +29,9 @@ migration = [
     "sqlalchemy[asyncio]",
     "asyncpg",
     "alembic",
-    "dw-shared-kernel==0.2.0",
+    "dw-shared-kernel@git+ssh://git@github.com/StartupCorporation/dw-shared-kernel.git@v0.4.0",
 ]
 local = [
-    "pytest",
     "ipython",
     "invoke",
     "ruff",
