@@ -67,8 +67,10 @@ select = [
 ]
 
 [tool.ruff.lint.per-file-ignores]
-"tasks/*" = ["T201", "ARG001"]
-"src/infrastructure/database/migrations/env.py" = ["F401"]
+"src/infrastructure/database/relational/migrations/env.py" = ["F401"]
+
+[tool.ruff.lint.isort]
+lines-after-imports = 2
 
 [tool.ruff.format]
 quote-style = "double"

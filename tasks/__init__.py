@@ -1,10 +1,12 @@
-from invoke.collection import Collection
+from pathlib import Path
 
-from deps import collection
+from dw_python_clis import ConfigVar, inner
 
 
-namespace = Collection()
-namespace.add_collection(
-    coll=collection,
-    name="deps",
+namespace = inner
+
+namespace.configure(
+    options={
+        ConfigVar.ROOT_DIR: Path(__file__).parent.parent,
+    },
 )
